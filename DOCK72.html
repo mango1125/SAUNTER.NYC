@@ -31,26 +31,28 @@
     <canvas id="threejs-canvas"></canvas>
     <a href="#" id="back-button">BACK</a>
   </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script>
-    
     // Scene, camera, and renderer setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    document.getElementById('threejs-canvas').appendChild(renderer.domElement); // Append renderer's domElement to existing canvas
 
     // Orbit controls for navigation
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.minPolarAngle = Math.PI / 4; // 45 degrees
-    controls.maxPolarAngle = Math.PI / 2; // 90 degrees    
+    controls.maxPolarAngle = Math.PI / 2; // 90 degrees
+
     // Lighting
     const ambientLight = new THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
     ambientLight.intensity = 3.0;
+
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 10, 7.5).normalize();
     scene.add(directionalLight);
@@ -69,15 +71,13 @@
       console.error('An error happened', error);
     });
 
-      // BACK button functionality
-     const backButton = document.getElementById('back-button');
+    // BACK button functionality
+    const backButton = document.getElementById('back-button');
 
-backButton.addEventListener('click', function(event) {
-  window.history.back()
-    // Handle your back action here, such as navigating to another page
-    // Example: window.history.back();
-    event.preventDefault(); // Prevent default link behavior
-});
+    backButton.addEventListener('click', function(event) {
+        window.history.back();
+        event.preventDefault(); // Prevent default link behavior
+    });
 
     // Render loop
     function animate() {
