@@ -14,7 +14,7 @@
         position: absolute;
         top: 10px; /* Adjust as needed */
         left: 10px; /* Adjust as needed */
-        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
         padding: 10px;
         text-decoration: none;
         border: 1px solid #fff;
@@ -28,7 +28,9 @@
 </head>
 <body>
   <div id="viewer-container">
+    <!-- Placeholder canvas element for Three.js -->
     <canvas id="threejs-canvas"></canvas>
+    <!-- BACK button -->
     <a href="#" id="back-button">BACK</a>
   </div>
 
@@ -41,7 +43,10 @@
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('threejs-canvas').appendChild(renderer.domElement); // Append renderer's domElement to existing canvas
+    
+    // Append renderer's domElement to the existing canvas
+    const canvas = document.getElementById('threejs-canvas');
+    canvas.appendChild(renderer.domElement);
 
     // Orbit controls for navigation
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
