@@ -1,70 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <title>3D Model Viewer</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;3D Model Viewer&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body { margin: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>canvas { display: block; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Scene, camera, and renderer setup</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const scene = new THREE.Scene();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const renderer = new THREE.WebGLRenderer();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>renderer.setSize(window.innerWidth, window.innerHeight);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.body.appendChild(renderer.domElement);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Orbit controls for navigation</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const controls = new THREE.OrbitControls(camera, renderer.domElement);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Lighting</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const ambientLight = new THREE.AmbientLight(0x404040);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>scene.add(ambientLight);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const directionalLight = new THREE.DirectionalLight(0xffffff, 1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>directionalLight.position.set(5, 10, 7.5).normalize();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>scene.add(directionalLight);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Load the GLTF model</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const loader = new THREE.GLTFLoader();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>loader.load('Models/NEWLAB.glb', function (gltf) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const model = gltf.scene;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>scene.add(model);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>// Position camera</p>
-<p class="p1"><span class="Apple-converted-space">      </span>camera.position.set(0, 2, 5);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>controls.update();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}, undefined, function (error) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>console.error('An error happened', error);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Render loop</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function animate() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>requestAnimationFrame(animate);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>controls.update();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>renderer.render(scene, camera);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>animate();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script>
+    // Scene, camera, and renderer setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Orbit controls for navigation
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0x404040);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 10, 7.5).normalize();
+    scene.add(directionalLight);
+
+    // Load the GLTF model
+    const loader = new THREE.GLTFLoader();
+    loader.load('Models/NEWLAB.glb', function (gltf) {
+      const model = gltf.scene;
+      scene.add(model);
+
+      // Position camera
+      camera.position.set(0, 2, 5);
+      controls.update();
+    }, undefined, function (error) {
+      console.error('An error happened', error);
+    });
+
+    // Render loop
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
 </body>
 </html>
