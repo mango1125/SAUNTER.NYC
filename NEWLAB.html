@@ -26,9 +26,11 @@
     // Lighting
     const ambientLight = new THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
+    ambientLight.intensity = 3.0;
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 10, 7.5).normalize();
     scene.add(directionalLight);
+    directionalLight.intensity = 3.0;
 
     // Load the GLTF model
     const loader = new THREE.GLTFLoader();
