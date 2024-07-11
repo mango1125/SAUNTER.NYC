@@ -19,6 +19,9 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
+    //background
+    scene.background = new THREE.Color(0x87CEEB); // Sky blue background
+
     // Orbit controls for navigation
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.minPolarAngle = 0; // top
@@ -26,7 +29,7 @@
     // Lighting
     const ambientLight = new THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
-    ambientLight.intensity = 4.0;
+    ambientLight.intensity = 3.0;
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 10, 7.5).normalize();
     scene.add(directionalLight);
