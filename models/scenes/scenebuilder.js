@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { loadBuildingModel } from '/scripts/modelLoader.js';
-import { loadSkyboxModel, lights, domeObjects } from '/scripts/domeLoader.js'; 
+import { loadBuildingModel } from './scripts/modelLoader.js';
+import { loadSkyboxModel, lights, domeObjects } from './scripts/domeLoader.js'; 
 import { Water } from 'three/addons/objects/Water.js'; 
 
 let renderer, scene, camera, controls;
