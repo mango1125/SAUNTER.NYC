@@ -1,0 +1,21 @@
+{
+    "models": 
+    [
+      {
+        "path": "Models/2024export/skybox/domes.obj",
+        "mtlPath": "Models/2024export/skybox/domes.mtl",
+        "texturePath": "Models/2024export/skybox/domes.png",
+        "alphaMapPath": "Models/2024export/skybox/domes_alpha.png",
+        "emissiveMapPath": "Models/2024export/skybox/domes_alpha.png",
+        "materialName": "domes",
+        "name": "domes",
+        "emissiveColor": "", 
+        "emissiveIntensity": 0,
+        "blending": "AdditiveBlending",
+        "opacity": 0.15,
+        "renderOrder": -1,
+        "isLights": 0
+      }
+    ]
+  }
+  
