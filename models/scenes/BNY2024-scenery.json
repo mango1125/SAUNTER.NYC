@@ -1,26 +1,26 @@
 {
     "models": [
       {
-        "path": "Models/2024export/scenery/ground/ground.obj",
-        "mtlPath": "Models/2024export/scenery/ground/ground.mtl",
-        "texturePath": "Models/2024export/scenery/ground/ground.png",
-        "alphaMapPath": "Models/2024export/scenery/ground/ground_alpha.png",
+        "path": "/models/2024export/scenery/ground/ground.obj",
+        "mtlPath": "/models/2024export/scenery/ground/ground.mtl",
+        "texturePath": "/models/2024export/scenery/ground/ground.png",
+        "alphaMapPath": "/models/2024export/scenery/ground/ground_alpha.png",
         "materialName": "ground",
         "name": "ground"
       },
       {
-        "path": "Models/2024export/scenery/cityscape/cityscape.obj",
-        "mtlPath": "Models/2024export/scenery/cityscape/cityscape.mtl",
-        "texturePath": "Models/2024export/scenery/cityscape/cityscape.png",
-        "alphaMapPath": "Models/2024export/scenery/cityscape/cityscape_alpha.png",
+        "path": "/models/2024export/scenery/cityscape/cityscape.obj",
+        "mtlPath": "/models/2024export/scenery/cityscape/cityscape.mtl",
+        "texturePath": "/models/2024export/scenery/cityscape/cityscape.png",
+        "alphaMapPath": "/models/2024export/scenery/cityscape/cityscape_alpha.png",
         "materialName": "cityscape",
         "name": "cityscape"
       },
       {
-        "path": "Models/2024export/scenery/cityscape/extra.obj",
-        "mtlPath": "Models/2024export/scenery/cityscape/extra.mtl",
-        "texturePath": "Models/2024export/scenery/cityscape/extra.png",
-        "alphaMapPath": "Models/2024export/scenery/cityscape/extra_alpha.png",
+        "path": "/models/2024export/scenery/cityscape/extra.obj",
+        "mtlPath": "/models/2024export/scenery/cityscape/extra.mtl",
+        "texturePath": "/models/2024export/scenery/cityscape/extra.png",
+        "alphaMapPath": "/models/2024export/scenery/cityscape/extra_alpha.png",
         "materialName": "extra",
         "name": "extra"
       }
