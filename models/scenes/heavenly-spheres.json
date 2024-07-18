@@ -2,11 +2,11 @@
     "models": 
     [
       {
-        "path": "Models/2024export/skybox/domes.obj",
-        "mtlPath": "Models/2024export/skybox/domes.mtl",
-        "texturePath": "Models/2024export/skybox/domes.png",
-        "alphaMapPath": "Models/2024export/skybox/domes_alpha.png",
-        "emissiveMapPath": "Models/2024export/skybox/domes_alpha.png",
+        "path": "/models/2024export/skybox/domes.obj",
+        "mtlPath": "/models/2024export/skybox/domes.mtl",
+        "texturePath": "/models/2024export/skybox/domes.png",
+        "alphaMapPath": "/models/2024export/skybox/domes_alpha.png",
+        "emissiveMapPath": "/models/2024export/skybox/domes_alpha.png",
         "materialName": "domes",
         "name": "domes",
         "emissiveColor": "", 
