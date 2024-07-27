@@ -4,8 +4,6 @@ import { loadBuildingModel } from '../../scripts/modelLoader.js';
 
 let renderer, scene, camera, controls;
 let pmremGenerator;
-let pivot;
-
 
 function init() {
     // Getting JSON files
@@ -23,10 +21,7 @@ function init() {
         antialias: false,
         logarithmicDepthBuffer: false
     });
-    // renderer.setSize(window.innerWidth, window.innerHeight);
-    let renderX = 1000;
-    let renderY = 200;
-    renderer.setSize(renderX, renderY);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
     // Initialize PMREMGenerator
@@ -36,37 +31,27 @@ function init() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff); // Sky blue background
 
-    const near = 200; // Start fog at 4000 units
-    const far = 700; // End fog at 20000 units
-    const fogColor = new THREE.Color(0xffffff);
-
-
-    // Create fog
-    scene.fog = new THREE.Fog(fogColor, near, far);
-
     // Camera setup
-    // camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
-    camera = new THREE.PerspectiveCamera(20, renderX / renderY, 0.1, 100000);
-    camera.position.set(400, 0, 0);
-    camera.rotation.set(0, 0, 0);
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
+    camera.position.set(282.84, 282.84, 282.84); // 400 units at 45 degrees from each axis
+    camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup
     controls = new OrbitControls(camera, renderer.domElement);
-    // controls.enableDamping = true;
-    // controls.dampingFactor = 0.001;
+    controls.enableDamping = true;
+    controls.dampingFactor = 1;
 
-        // Disable zoom and pan
-        controls.enableZoom = false;
-        controls.enablePan = false;
-    
-        // Limit rotation to horizontal (left/right)
-        controls.maxPolarAngle = Math.PI / 2; // Prevent looking too far up
-        controls.minPolarAngle = Math.PI / 2; // Prevent looking too far down
+    // Disable zoom and pan
+    controls.enablePan = false;
 
-    // Create a pivot point for the camera to orbit around
-    pivot = new THREE.Object3D();
-    scene.add(pivot);
-    pivot.add(camera);
+    // Limit rotation to horizontal (left/right) and prevent looking underneath
+    controls.minPolarAngle = 0; // Allow looking directly upwards
+    controls.maxPolarAngle = Math.PI / 2; // Prevent looking underneath
+
+    // Set zoom limits
+    controls.minDistance = 100; // Starting position is the furthest out you can zoom
+    controls.maxDistance = 400; // Prevent zooming out further
+    controls.enableZoom = true;
 
     // Lighting setup
     const ambientLight = new THREE.AmbientLight(0xffffff);
@@ -108,15 +93,8 @@ function loadMultipleJSONFiles(filesArray, scene, loaderFunction) {
     }, Promise.resolve());
 }
 
-let requestId;
-
 function animate() {
-    requestId = requestAnimationFrame(animate);
-
-    // Apply a small horizontal rotation to the pivot point if rotation is enabled
-    if (pivot) {
-        pivot.rotation.y += 0.0003; // Adjust the rotation speed as needed
-    }
+    requestAnimationFrame(animate);
 
     // Render scene
     if (renderer && scene && camera) {
@@ -124,17 +102,7 @@ function animate() {
     }
 }
 
-function stopAnimation() {
-    cancelAnimationFrame(requestId);
-}
-
-// controls.domElement.addEventListener('click', function () { 
-//     console.log('clicked');
-//     stopAnimation();
-// }); 
-
 // Initialize when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
     init();
-    console.log(controls.domElement);
 });
