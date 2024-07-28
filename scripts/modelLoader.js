@@ -13,16 +13,44 @@ export function loadBuildingModel(modelInfo, scene) {
                 // Set texture filtering properties and handle alpha maps
                 for (const materialName in materials.materials) {
                     const material = materials.materials[materialName];
-                    material.side = THREE.DoubleSide;
-                    if (material.map) {
-                        material.map.magFilter = THREE.NearestFilter;
-                        material.map.minFilter = THREE.LinearMipmapLinearFilter;
+                    
+                    // Apply transparency if specified in modelInfo
+                    if (modelInfo.transparent) {
+                        material.transparent = true;
+                    }
 
+                    // Apply side if specified in modelInfo, otherwise default to THREE.DoubleSide
+                    if (modelInfo.side) {
+                        if (modelInfo.side === 'BackSide') {
+                            material.side = THREE.BackSide;
+                        } else if (modelInfo.side === 'FrontSide') {
+                            material.side = THREE.FrontSide;
+                        } else {
+                            material.side = THREE.DoubleSide;
+                        }
+                    } else {
+                        material.side = THREE.DoubleSide;
+                    }
+
+                    // Apply depthWrite if specified in modelInfo
+                    if (modelInfo.depthWrite === false) {
+                        material.depthWrite = false;
+                    }
+
+                    if (material.map) {
+                        material.map.anisotropy = 0;
+                        material.map.magFilter = THREE.NearestFilter;
+                        material.map.minFilter = THREE.NearestFilter;
+                        
                         // Handle alpha maps
                         if (material.map.format === THREE.RGBAFormat) {
-                            material.transparent = true;
-                            material.alphaTest = 0.5; // Adjust as needed
+                            material.alphaTest = 0.5; // adjust as needed
                         }
+                    }
+
+                    if (material.alphaMap) {
+                        material.alphaMap.magFilter = THREE.NearestFilter;
+                        material.alphaMap.minFilter = THREE.NearestFilter;
                     }
                 }
 

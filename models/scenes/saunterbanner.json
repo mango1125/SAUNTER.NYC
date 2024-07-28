@@ -1,0 +1,13 @@
+{
+  "models": [
+    {
+      "path": "/banner/saunterbanner.obj",
+      "mtlPath": "/banner/saunterbanner.mtl",
+      "texturePath": "/banner/saunterbanner.png",
+      "alphaMapPath": "/banner/saunterbanner_alpha.png",
+      "materialName": "saunterbanner",
+      "name": "saunterbanner",
+      "side": "FrontSide"
+    }
+  ]
+}

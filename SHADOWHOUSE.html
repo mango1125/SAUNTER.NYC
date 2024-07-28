@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MYUNGHYUN-A DWELLING FOR TWO SHADOWS</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body data-model-json-files="/models/shadowhouse/shadowhouse.json">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three/examples/jsm/",
+        "three/examples/": "https://unpkg.com/three/examples/",
+        "dat.gui": "https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"
+      }
+    }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+ <script type="module" src="./scripts/modelLoader.js"></script>
+ <script type="module" src="./models/scenes/scenebuilder_small.js"></script>
+</body>
+</html>
