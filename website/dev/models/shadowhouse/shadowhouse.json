@@ -1,0 +1,22 @@
+{
+  "models": [
+    {
+      "path": "/models/shadowhouse/shadowhouse.obj",
+      "mtlPath": "/models/shadowhouse/shadowhouse.mtl",
+      "texturePath": "/models/shadowhouse/shadowhouse.png",
+      "alphaMapPath": "/models/shadowhouse/shadowhouse_alpha.png",
+      "materialName": "shadowhouse",
+      "name": "shadowhouse"
+    },
+    {
+      "path": "/models/shadowhouse/shadowhouse_sky.obj",
+      "mtlPath": "/models/shadowhouse/shadowhouse.mtl",
+      "texturePath": "/models/shadowhouse/shadowhouse.png",
+      "alphaMapPath": "/models/shadowhouse/shadowhouse_alpha.png",
+      "materialName": "shadowhouse",
+      "name": "shadowhouse_sky",
+      "side": "BackSide",
+      "depthWrite": false
+    }
+  ]
+}

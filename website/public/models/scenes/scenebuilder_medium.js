@@ -56,7 +56,7 @@ function init() {
     // Lighting setup
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    ambientLight.intensity = 3; 
+    ambientLight.intensity = 3;
 
     // Load building models
     loadMultipleJSONFiles(modelFilesArray, scene, loadBuildingModel)

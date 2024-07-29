@@ -1,0 +1,22 @@
+{
+  "models": [
+    {
+      "path": "/models/zipup/zipup.obj",
+      "mtlPath": "/models/zipup/zipup.mtl",
+      "texturePath": "/models/zipup/zipup.png",
+      "alphaMapPath": "/models/zipup/zipup_alpha.png",
+      "materialName": "zipup",
+      "name": "zipup"
+    },
+    {
+      "path": "/models/zipup/zipup_sky.obj",
+      "mtlPath": "/models/zipup/zipup.mtl",
+      "texturePath": "/models/zipup/zipup.png",
+      "alphaMapPath": "/models/zipup/zipup_alpha.png",
+      "materialName": "zipup",
+      "name": "zipup_sky",
+      "side": "BackSide",
+      "depthWrite": false
+    }
+  ]
+}
