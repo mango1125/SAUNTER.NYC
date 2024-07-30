@@ -2,7 +2,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { loadBuildingModel } from '../../scripts/modelLoader.js';
 
-class scenebuilder_base {
+class SceneBuilderBase {
+    
     constructor() {
         this.renderer = null;
         this.scene = null;
@@ -11,7 +12,7 @@ class scenebuilder_base {
         this.pmremGenerator = null;
     }
 
-    init(modelHtmlTag='three-model') {
+    init(modelHtmlTag='three-model', backgroundColor=0xf7f7f7, damping=true) {
         // Getting JSON files
         const modelHtmlElement = document.getElementById(modelHtmlTag);
         const modelJsonFiles = modelHtmlElement.getAttribute('data-model-json-files');
@@ -31,6 +32,8 @@ class scenebuilder_base {
             logarithmicDepthBuffer: false
         });
         this.renderer.setSize(sizeX, sizeY);
+
+        // TODO: CHANGE THIS LINE
         document.body.appendChild(this.renderer.domElement);
 
         // Initialize PMREMGenerator
@@ -38,7 +41,7 @@ class scenebuilder_base {
 
         // Scene setup
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color(0xffffff); // Sky blue background
+        this.scene.background = new THREE.Color(backgroundColor); // Sky blue background
 
         // Camera setup
         this.camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100000);
@@ -47,7 +50,7 @@ class scenebuilder_base {
 
         // Controls setup
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-        this.controls.enableDamping = true;
+        this.controls.enableDamping = damping;
         this.controls.dampingFactor = 1;
 
         // Disable zoom and pan
@@ -113,7 +116,7 @@ class scenebuilder_base {
 }
 
 
-// Initialize when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-    init();
-});
+// // Initialize when the DOM is fully loaded
+// document.addEventListener('DOMContentLoaded', function () {
+//     init();
+// });

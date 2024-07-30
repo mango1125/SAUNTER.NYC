@@ -28,7 +28,8 @@ function init() {
         logarithmicDepthBuffer: false
     });
     renderer.setSize(sizeX, sizeY);
-    document.body.appendChild(renderer.domElement);
+
+    modelHtmlTag.append(renderer.domElement);
 
     // Initialize PMREMGenerator
     pmremGenerator = new THREE.PMREMGenerator(renderer);

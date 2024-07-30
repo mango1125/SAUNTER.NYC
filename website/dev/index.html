@@ -13,44 +13,47 @@
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.12.4/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <!-- <script defer src="/__/firebase/10.12.4/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.12.4/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.12.4/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.12.4/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.12.4/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.12.4/firebase-storage-compat.js"></script> -->
     <script defer src="/__/firebase/10.12.4/firebase-analytics-compat.js"></script>
-    <!-- <script defer src="/__/firebase/10.12.4/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.12.4/firebase-performance-compat.js"></script> -->
     <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <script src="scripts/script.js"></script>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three/examples/jsm/",
+            "three/examples/": "https://unpkg.com/three/examples/",
+            "dat.gui": "https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"
+          }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+    <script type="module" src="./scripts/modelLoader.js"></script>
 </head>
 
 <body>
 
 <div id="three-model" data-model-json-files="/models/scenes/saunterbanner.json" data-size-x="1000" data-size-y="300">
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three/examples/jsm/",
-        "three/examples/": "https://unpkg.com/three/examples/",
-        "dat.gui": "https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"
-      }
-    }
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
-  <script type="module" src="./scripts/modelLoader.js"></script>
   <script type="module" src="./models/scenes/scenebuilder_banner.js"></script>
 </div>
 
-<div class="footer">
-  (c) 2024 SAUNTER.NYC
+<div id="navbar">
+  <div> <!-- TODO: these links -->
+    <a href="">about</a>
+  </div>
+  <div>
+    <a href="">index</a>
+  </div>
+  <div>
+    <a href="">team</a>
+  </div>
+  <div>
+    <a href="">contact</a>
+  </div>
 </div>
 
 <div class="content">
@@ -67,24 +70,13 @@
     interested in presenting data in interactive 3D. Please reach out at <a class="email-link" href="mailto:">info@saunter.nyc</a>.</p>
   </div>
 
-  <div class="content-model small-model">
-    
+  <div id="showcase-temp" class="content-model small-model" data-model-json-files="/models/zipup/zipup.json" data-size-x="1000" data-size-y="300">
+    <script type="module" src="./models/scenes/scenebuilder_showcase.js"></script>
   </div>
 </div>
 
-<div id="navbar">
-  <div> <!-- TODO: these links -->
-    <a href="">about</a>
-  </div>
-  <div>
-    <a href="">index</a>
-  </div>
-  <div>
-    <a href="">team</a>
-  </div>
-  <div>
-    <a href="">contact</a>
-  </div>
+<div class="footer">
+  (c) 2024 SAUNTER.NYC
 </div>
 
 </body>
