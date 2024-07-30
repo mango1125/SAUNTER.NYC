@@ -116,7 +116,7 @@ function animate() {
 
     // Apply a small horizontal rotation to the pivot point
     if (pivot) {
-        pivot.rotation.y += 0.0004; // Adjust the rotation speed as needed
+        pivot.rotation.y += 0.0002; // Adjust the rotation speed as needed
     }
 
     // Render scene

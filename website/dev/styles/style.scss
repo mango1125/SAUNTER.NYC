@@ -41,6 +41,17 @@ canvas {
     bottom: 10px;
 }
 
+.email-link {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 #navbar {
     display: flex;
     align-items: center;
@@ -54,9 +65,12 @@ canvas {
         font-weight: 500;
         font-size: x-large;
         margin: 0 40px;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
-
 
 
 // @media (max-width: 600px) {
