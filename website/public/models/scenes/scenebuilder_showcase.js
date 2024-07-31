@@ -7,7 +7,8 @@ let pmremGenerator;
 
 function init() {
     // Getting JSON files
-    const modelJsonFiles = document.body.getAttribute('data-model-json-files');
+    const modelHtmlTag = document.getElementById('showcase-temp');
+    const modelJsonFiles = modelHtmlTag.getAttribute('data-model-json-files');
 
     if (!modelJsonFiles) {
         console.error('No JSON files specified in the data attribute');
@@ -15,14 +16,16 @@ function init() {
     }
 
     const modelFilesArray = modelJsonFiles.split(',');
+    const sizeX = modelHtmlTag.getAttribute('data-size-x');
+    const sizeY = modelHtmlTag.getAttribute('data-size-y');
 
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
         antialias: false,
         logarithmicDepthBuffer: false
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    renderer.setSize(sizeX, sizeY);
+    modelHtmlTag.append(renderer.domElement);
 
     // Initialize PMREMGenerator
     pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -32,8 +35,8 @@ function init() {
     scene.background = new THREE.Color(0xffffff); // Sky blue background
 
     // Camera setup
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
-    camera.position.set(282.84, 282.84, 282.84); // 400 units at 45 degrees from each axis
+    camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100000);
+    camera.position.set(900, 500, 700); // 400 units at 45 degrees from each axis
     camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup
@@ -50,7 +53,7 @@ function init() {
 
     // Set zoom limits
     controls.minDistance = 100; // Starting position is the furthest out you can zoom
-    controls.maxDistance = 400; // Prevent zooming out further
+    controls.maxDistance = 1300; // Prevent zooming out further
     controls.enableZoom = true;
 
     // Lighting setup

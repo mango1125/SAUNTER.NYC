@@ -19,23 +19,27 @@ function init() {
 
     const modelFilesArray = modelJsonFiles.split(',');
 
+    const sizeX = modelHtmlTag.getAttribute('data-size-x');
+    const sizeY = modelHtmlTag.getAttribute('data-size-y');
+
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
         antialias: false,
         logarithmicDepthBuffer: false
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    renderer.setSize(sizeX, sizeY);
+
+    modelHtmlTag.append(renderer.domElement);
 
     // Initialize PMREMGenerator
     pmremGenerator = new THREE.PMREMGenerator(renderer);
 
-   
-    
+
+
 
     // Scene setup
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff); // Sky blue background
+    scene.background = new THREE.Color(0xf7f7f7); // Match the background color of the website
 
     const near = 200; // Start fog at 4000 units
     const far = 700; // End fog at 20000 units
@@ -46,7 +50,7 @@ function init() {
     scene.fog = new THREE.Fog(fogColor, near, far);
 
     // Camera setup
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
+    camera = new THREE.PerspectiveCamera(31, sizeX / sizeY, 0.1, 100000);
     camera.position.set(400, 0, 0);
     camera.rotation.set(0, 0, 0);
 
@@ -55,13 +59,13 @@ function init() {
     // controls.enableDamping = true;
     // controls.dampingFactor = 0.001;
 
-        // Disable zoom and pan
-        controls.enableZoom = false;
-        controls.enablePan = false;
-    
-        // Limit rotation to horizontal (left/right)
-        controls.maxPolarAngle = Math.PI / 2; // Prevent looking too far up
-        controls.minPolarAngle = Math.PI / 2; // Prevent looking too far down
+    // Disable zoom and pan
+    controls.enableZoom = false;
+    controls.enablePan = false;
+
+    // Limit rotation to horizontal (left/right)
+    controls.maxPolarAngle = Math.PI / 2; // Prevent looking too far up
+    controls.minPolarAngle = Math.PI / 2; // Prevent looking too far down
 
     // Create a pivot point for the camera to orbit around
     pivot = new THREE.Object3D();
@@ -71,7 +75,7 @@ function init() {
     // Lighting setup
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    ambientLight.intensity = 3; 
+    ambientLight.intensity = 3;
 
     // Load building models
     loadMultipleJSONFiles(modelFilesArray, scene, loadBuildingModel)
@@ -113,7 +117,7 @@ function animate() {
 
     // Apply a small horizontal rotation to the pivot point
     if (pivot) {
-        pivot.rotation.y += 0.0004; // Adjust the rotation speed as needed
+        pivot.rotation.y += 0.0002; // Adjust the rotation speed as needed
     }
 
     // Render scene

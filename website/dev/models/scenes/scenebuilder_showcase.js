@@ -25,7 +25,7 @@ function init() {
         logarithmicDepthBuffer: false
     });
     renderer.setSize(sizeX, sizeY);
-    document.body.appendChild(renderer.domElement);
+    modelHtmlTag.append(renderer.domElement);
 
     // Initialize PMREMGenerator
     pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -36,7 +36,7 @@ function init() {
 
     // Camera setup
     camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100000);
-    camera.position.set(282.84, 282.84, 282.84); // 400 units at 45 degrees from each axis
+    camera.position.set(900, 500, 700); // 400 units at 45 degrees from each axis
     camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup
@@ -53,7 +53,7 @@ function init() {
 
     // Set zoom limits
     controls.minDistance = 100; // Starting position is the furthest out you can zoom
-    controls.maxDistance = 400; // Prevent zooming out further
+    controls.maxDistance = 1300; // Prevent zooming out further
     controls.enableZoom = true;
 
     // Lighting setup
