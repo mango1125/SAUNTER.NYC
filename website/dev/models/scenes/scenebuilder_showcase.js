@@ -32,11 +32,11 @@ function init() {
 
     // Scene setup
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff); // Sky blue background
+    scene.background = new THREE.Color(0xf7f7f7); // Sky blue background
 
     // Camera setup
     camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100000);
-    camera.position.set(900, 500, 700); // 400 units at 45 degrees from each axis
+    camera.position.set(1100, 1100, 1100); // 400 units at 45 degrees from each axis
     camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup
@@ -53,7 +53,7 @@ function init() {
 
     // Set zoom limits
     controls.minDistance = 100; // Starting position is the furthest out you can zoom
-    controls.maxDistance = 1300; // Prevent zooming out further
+    controls.maxDistance = 2100; // Prevent zooming out further
     controls.enableZoom = true;
 
     // Lighting setup
