@@ -43,11 +43,7 @@ canvas {
     }
 }
 
-.footer {
-    margin: 10px 0;
-}
-
-.email-link {
+.content-link {
     color: $primary-color;
     text-decoration: none;
     font-weight: 500;
@@ -56,6 +52,10 @@ canvas {
     &:hover {
         text-decoration: underline;
     }
+}
+
+.footer {
+    margin: 10px 0;
 }
 
 #navbar {
