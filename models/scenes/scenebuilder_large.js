@@ -33,7 +33,7 @@ function init() {
 
     // Camera setup
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
-    camera.position.set(1950, 1950, 1950); // 400 units at 45 degrees from each axis
+    camera.position.set(1500, 1500, 1500); // 400 units at 45 degrees from each axis
     camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup
@@ -49,8 +49,8 @@ function init() {
     controls.maxPolarAngle = Math.PI / 2; // Prevent looking underneath
 
     // Set zoom limits
-    controls.minDistance = 100; // Starting position is the furthest out you can zoom
-    controls.maxDistance = 4000; // Prevent zooming out further
+    controls.minDistance = 1500; // Starting position is the furthest out you can zoom
+    controls.maxDistance = 5000; // Prevent zooming out further
     controls.enableZoom = true;
 
     // Lighting setup
