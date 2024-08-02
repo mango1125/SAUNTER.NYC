@@ -54,6 +54,38 @@ canvas {
     }
 }
 
+.showcase-entries {
+    margin: 4em 0;
+
+    ul {
+        margin-bottom: 2em;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+
+        img {
+            max-width: 1.5em;
+            margin-left: 0.5em;
+        }
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 500;
+
+        margin: 0.5em 0;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 500;
+
+        margin: 0;
+    }
+}
+
 .footer {
     margin: 10px 0;
 }
