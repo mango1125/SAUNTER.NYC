@@ -5,6 +5,8 @@ import { loadBuildingModel } from '../../scripts/modelLoader.js';
 let renderer, scene, camera, controls;
 let pmremGenerator;
 
+let renderRatio;
+
 function init() {
     // Getting JSON files
     const modelHtmlTag = document.getElementById('showcase-temp');
@@ -17,8 +19,17 @@ function init() {
 
     const modelFilesArray = modelJsonFiles.split(',');
     const dims = document.getElementById('showcase-temp').getBoundingClientRect();
-    const sizeX = dims.width;
+    const windowHeight = window.innerHeight;
+
+    let sizeX = dims.width;
+
+    if (windowHeight < dims.height) {
+        let sizeX = windowHeight;
+    }
+
     const sizeY = dims.height;
+
+    renderRatio = sizeX / sizeY;
 
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
@@ -110,3 +121,31 @@ function animate() {
 document.addEventListener('DOMContentLoaded', function () {
     init();
 });
+
+// Resize on window size change
+window.addEventListener('resize', onWindowResize, false);
+
+function onWindowResize() {
+
+    // const dims = document.getElementById('showcase-temp').getBoundingClientRect();
+    // const windowHeight = window.innerHeight;
+
+    // let sizeX = dims.width;
+
+    // if (windowHeight < dims.height) {
+    //     let sizeX = windowHeight;
+    // }
+
+    // const sizeY = renderRatio * sizeX;
+
+    // camera.aspect = sizeX / sizeY;
+    // camera.updateProjectionMatrix();
+
+    // renderer.setSize(sizeX, sizeY);
+
+    // This is expensive and bad but it works for now...
+    // TODO: Find a better way to resize the renderer
+    location.reload();
+
+}
+

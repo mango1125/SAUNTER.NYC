@@ -21,6 +21,14 @@ p {
   font-size: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+a:hover {
+  text-decoration: underline;
+}
+
 canvas {
   display: block;
 }
@@ -30,14 +38,6 @@ canvas {
 }
 .content .content-text {
   margin-bottom: 2em;
-}
-
-.content-link {
-  color: rgba(0, 0, 0, 0.87);
-  text-decoration: none;
-}
-.content-link:hover {
-  text-decoration: underline;
 }
 
 .email-link {
