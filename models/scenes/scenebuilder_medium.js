@@ -19,7 +19,7 @@ function init() {
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
         antialias: false,
-        logarithmicDepthBuffer: false
+        logarithmicDepthBuffer: true
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
