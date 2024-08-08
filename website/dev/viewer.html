@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SAUNTER.NYC - WORKS</title>
+    <title>SAUNTER.NYC - CONTACT</title>
     <link rel="icon" href="resources/logo.png">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
     </style>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/viewer.css">
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.12.4/firebase-app-compat.js"></script>
@@ -38,9 +39,30 @@
 
 <body>
 
-    <div id="three-model" data-model-json-files="/models/scenes/saunterbanner.json" data-size-x="1000"
+    <div class="viewer-details">
+        <h1 id="viewer-back-button">&lt;&lt;BACK</h1>
+        <h1 class="viewer-title">ZIP-UP HOUSE</h1>
+        <p>The Zip-Up house is an unbuilt proposal designed by Richard and Su Rogers, circa 1967,
+        for a DuPont “The House of Today” competition.</p>
+        
+        <p>The original concept imagines prefabricated modules created from materials used for insulated shipping applications.
+        These units would be lightweight, and cost effective to construct, install, modify, and move. The individual units are
+        simply “zipped” together on site using neoprene “zips”. Instead of a traditional foundation, adjustable footings are
+        used which allows the structure to be placed anywhere, quickly, regardless of terrain.</p>
+        
+        <p>In our interpretation of this classic design proposal, we have furnished our Zip-Up as the Saunter HQ. Otherwise, we
+        remain true to the original concept by demonstrating the flexibility that the concept offers. We believe that the
+        technological advancements made since the 60's means previously discarded concepts such as this one have a newfound
+        viability.</p>
+    
+        <p><i>-Roman Mamus</i></p>
+    </div>
+    <div id="showcase-temp" class="content-model small-model viewer-model" data-model-json-files="/models/zipup/zipup.json">
+        <script type="module" src="./models/scenes/scenebuilder_zipup.js"></script>
+    </div>
+
+    <!-- <div id="three-model" data-model-json-files="/models/scenes/saunterbanner.json" data-size-x="1000"
         data-size-y="300">
-        <!-- <script type="module" src="./models/scenes/scenebuilder_banner.js"></script> -->
         <script type="module" src="./models/scenes/scenebuilder_functional.js"></script>
     </div>
 
@@ -61,43 +83,14 @@
 
     <div class="content">
         <div class="content-text">
-            <h1>SHOWCASES</h1>
-            <p>Here we have prepared a select number of our demos for you to get a better idea of what we can do. These include both
-            our own self-initiated projects as well as client work. If you would like to schedule a more in-depth demonstration of
-            our projects, we are happy to prepare demos for your team, tailored to your needs.</p>
-
-            <!-- TODO: Automate population of these fields -->
-            <div class="showcase-entries">
-                <h2><a class="content-link" href="viewer_zipup.html">ZIP-UP HOUSE<img src="resources/link.png" alt="link icon" /></a></h2>
-                <h3>A <b>SAUNTER.NYC</b> PRESENTATION</h3>
-                <ul>
-                    <li>designed by Richard and Su Rogers</li>
-                    <li>unbuilt proposal</li>
-                    <li>designed c. 1967</li>
-                </ul>
-                
-                <h2><a class="content-link" href="">A DWELLING FOR TWO SHADOWS<img src="resources/link.png" alt="link icon" /></a></h2>
-                <h3>CLIENT WORK for <b>MEANINGLESS ARCHITECTURE</b> AW'24</h3>
-                <ul>
-                    <li>designed by Michael Myunghyun Lee</li>
-                    <li>small artist's studio with an emphasis on lighting</li>
-                    <li>contemporary structure</li>
-                </ul>
-                
-                <h2><a class="content-link" href="">FLATIRON BUILDING<img src="resources/link.png" alt="link icon" /></a></h2>
-                <h3>A <b>SAUNTER.NYC</b> PRESENTATION</h3>
-                <ul>
-                    <li>designed by Daniel Burnham and Frederick P. Dinkelberg</li>
-                    <li>early example of a steel-framed skyscraper</li>
-                    <li>opened 1902</li>
-                </ul>
-            </div>
+            <h1>CONTACT</h1>
+            <p>Please reach out to us at <a class="content-link email-link" href="mailto:">info@saunter.nyc</a>.</p>
         </div>
     </div>
 
     <div class="footer">
         (c) 2024 SAUNTER.NYC
-    </div>
+    </div> -->
 
 </body>
 

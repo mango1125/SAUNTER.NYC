@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    // border-style: solid;
+    // border-color: red;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    // grid-gap: 2em;
+    width: 100vw;
+    height: 100vh;
+}
+
+.viewer-details {
+    // max-width: 40em;
+    padding: 10px;
+
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.viewer-model {
+    // border: brown 1px solid;
+
+    justify-self: stretch;
+    align-self: stretch;
+
+    grid-column: 2 / span 3;
+    grid-row: 1 /span 3;
+}

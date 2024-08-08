@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+.viewer-details {
+  padding: 10px;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.viewer-model {
+  justify-self: stretch;
+  align-self: stretch;
+  grid-column: 2/span 3;
+  grid-row: 1/span 3;
+}/*# sourceMappingURL=viewer.css.map */
