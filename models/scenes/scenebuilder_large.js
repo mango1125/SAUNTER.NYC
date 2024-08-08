@@ -5,12 +5,9 @@ import { loadBuildingModel } from '../../scripts/modelLoader.js';
 let renderer, scene, camera, controls;
 let pmremGenerator;
 
-// let renderRatio;
-
 function init() {
     // Getting JSON files
-    const modelHtmlTag = document.getElementById('showcase-temp');
-    const modelJsonFiles = modelHtmlTag.getAttribute('data-model-json-files');
+    const modelJsonFiles = document.body.getAttribute('data-model-json-files');
 
     if (!modelJsonFiles) {
         console.error('No JSON files specified in the data attribute');
@@ -18,51 +15,25 @@ function init() {
     }
 
     const modelFilesArray = modelJsonFiles.split(',');
-    const dims = document.getElementById('showcase-temp').getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
-
-    let sizeX = dims.width;
-    let sizeY = dims.height;
-
-    // Handle cases where the model is taller than the window
-    if (windowHeight < dims.height) {
-        sizeX = windowHeight;
-    }
-
-    if (windowWidth < 600) {
-        sizeX = windowWidth;
-        sizeY = sizeX;
-    }
-
-    // let viewerRatio = sizeX / sizeY;
-
-    // // Handle mobile devices
-    // if (windowWidth < sizeX) {
-    //     sizeX = windowWidth;
-    //     sizeY = sizeX / viewerRatio;
-    // }
-
-    // renderRatio = sizeX / sizeY;
 
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
         antialias: false,
         logarithmicDepthBuffer: false
     });
-    renderer.setSize(sizeX, sizeY);
-    modelHtmlTag.append(renderer.domElement);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
     // Initialize PMREMGenerator
     pmremGenerator = new THREE.PMREMGenerator(renderer);
 
     // Scene setup
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xf7f7f7); // Sky blue background
+    scene.background = new THREE.Color(0xffffff); // Sky blue background
 
     // Camera setup
-    camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100000);
-    camera.position.set(1100, 1100, 1100); // 400 units at 45 degrees from each axis
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
+    camera.position.set(1500, 1500, 1500); // 400 units at 45 degrees from each axis
     camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup
@@ -78,8 +49,8 @@ function init() {
     controls.maxPolarAngle = Math.PI / 2; // Prevent looking underneath
 
     // Set zoom limits
-    controls.minDistance = 100; // Starting position is the furthest out you can zoom
-    controls.maxDistance = 2100; // Prevent zooming out further
+    controls.minDistance = 1500; // Starting position is the furthest out you can zoom
+    controls.maxDistance = 5000; // Prevent zooming out further
     controls.enableZoom = true;
 
     // Lighting setup
@@ -135,31 +106,3 @@ function animate() {
 document.addEventListener('DOMContentLoaded', function () {
     init();
 });
-
-// Resize on window size change
-window.addEventListener('resize', onWindowResize, false);
-
-function onWindowResize() {
-
-    // const dims = document.getElementById('showcase-temp').getBoundingClientRect();
-    // const windowHeight = window.innerHeight;
-
-    // let sizeX = dims.width;
-
-    // if (windowHeight < dims.height) {
-    //     let sizeX = windowHeight;
-    // }
-
-    // const sizeY = renderRatio * sizeX;
-
-    // camera.aspect = sizeX / sizeY;
-    // camera.updateProjectionMatrix();
-
-    // renderer.setSize(sizeX, sizeY);
-
-    // This is expensive and bad but it works for now...
-    // TODO: Find a better way to resize the renderer
-    location.reload();
-
-}
-

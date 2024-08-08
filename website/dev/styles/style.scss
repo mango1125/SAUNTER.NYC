@@ -140,16 +140,25 @@ canvas {
     }
 }
 
-// @media (max-width: 600px) {
+@media (max-width: 600px) {
+    .content {
+        padding: 0 20px;
+    }
 
-//     body,
-//     #message {
-//         margin-top: 0;
-//         background: white;
-//         box-shadow: none;
-//     }
+    #navbar {
+        // flex-direction: row;
+        flex-wrap: wrap;
+        
+        div {
+            margin: 10px 0;
+        }
+    }
 
-//     body {
-//         border-top: 16px solid #ffa100;
-//     }
-// }
+    // #three-model {
+    //     display: none;
+    // }
+
+    .splash-model {
+        display: none;
+    }
+}

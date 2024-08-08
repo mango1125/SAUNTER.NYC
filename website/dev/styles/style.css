@@ -105,4 +105,19 @@ canvas {
 }
 .not-found p {
   font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 0 20px;
+  }
+  #navbar {
+    flex-wrap: wrap;
+  }
+  #navbar div {
+    margin: 10px 0;
+  }
+  .splash-model {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

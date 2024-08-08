@@ -1,0 +1,22 @@
+{
+  "models": [
+    {
+      "path": "/models/frontierstation/frontierstation.obj",
+      "mtlPath": "/models/frontierstation/frontierstation.mtl",
+      "texturePath": "/models/frontierstation/frontierstation.png",
+      "alphaMapPath": "/models/frontierstation/frontierstation_alpha.png",
+      "materialName": "frontierstation",
+      "name": "frontierstation"
+    },
+    {
+      "path": "/models/frontierstation/frontierstation_sky.obj",
+      "mtlPath": "/models/frontierstation/frontierstation.mtl",
+      "texturePath": "/models/frontierstation/frontierstation.png",
+      "alphaMapPath": "/models/frontierstation/frontierstation_alpha.png",
+      "materialName": "frontierstation",
+      "name": "frontierstation_sky",
+      "side": "BackSide",
+      "depthWrite": false
+    }
+  ]
+}

@@ -19,7 +19,7 @@ function init() {
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
         antialias: false,
-        logarithmicDepthBuffer: false
+        logarithmicDepthBuffer: true
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
@@ -33,7 +33,7 @@ function init() {
 
     // Camera setup
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
-    camera.position.set(282.84, 282.84, 282.84); // 400 units at 45 degrees from each axis
+    camera.position.set(1950, 1950, 1950); // 400 units at 45 degrees from each axis
     camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup
@@ -50,13 +50,13 @@ function init() {
 
     // Set zoom limits
     controls.minDistance = 100; // Starting position is the furthest out you can zoom
-    controls.maxDistance = 1950; // Prevent zooming out further
+    controls.maxDistance = 4000; // Prevent zooming out further
     controls.enableZoom = true;
 
     // Lighting setup
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    ambientLight.intensity = 3;
+    ambientLight.intensity = 3; 
 
     // Load building models
     loadMultipleJSONFiles(modelFilesArray, scene, loadBuildingModel)

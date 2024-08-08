@@ -19,8 +19,17 @@ function init() {
 
     const modelFilesArray = modelJsonFiles.split(',');
 
-    const sizeX = modelHtmlTag.getAttribute('data-size-x');
-    const sizeY = modelHtmlTag.getAttribute('data-size-y');
+    let sizeX = modelHtmlTag.getAttribute('data-size-x');
+    let sizeY = modelHtmlTag.getAttribute('data-size-y');
+
+    let viewerRatio = sizeX / sizeY;
+
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth < sizeX) {
+        sizeX = windowWidth;
+        sizeY = sizeX / viewerRatio;
+    }
 
     // Renderer setup
     renderer = new THREE.WebGLRenderer({
