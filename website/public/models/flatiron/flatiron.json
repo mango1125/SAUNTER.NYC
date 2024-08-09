@@ -1,0 +1,22 @@
+{
+  "models": [
+    {
+      "path": "/models/flatiron/flatiron.obj",
+      "mtlPath": "/models/flatiron/flatiron.mtl",
+      "texturePath": "/models/flatiron/flatiron.png",
+      "alphaMapPath": "/models/flatiron/flatiron_alpha.png",
+      "materialName": "flatiron",
+      "name": "flatiron"
+    },
+    {
+      "path": "/models/flatiron/flatiron_sky.obj",
+      "mtlPath": "/models/flatiron/flatiron.mtl",
+      "texturePath": "/models/flatiron/flatiron.png",
+      "alphaMapPath": "/models/flatiron/flatiron_alpha.png",
+      "materialName": "flatiron",
+      "name": "flatiron_sky",
+      "side": "BackSide",
+      "depthWrite": false
+    }
+  ]
+}

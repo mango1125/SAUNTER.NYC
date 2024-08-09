@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SAUNTER.NYC - CONTACT</title>
+    <title>SAUNTER.NYC - VIEWER</title>
     <link rel="icon" href="resources/logo.png">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
     </style>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/viewer.css">
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.12.4/firebase-app-compat.js"></script>
@@ -38,32 +39,22 @@
 
 <body>
 
-    <div id="three-model" data-model-json-files="/models/scenes/saunterbanner.json" data-size-x="1000"
-        data-size-y="300">
-        <!-- <script type="module" src="./models/scenes/scenebuilder_banner.js"></script> -->
-        <script type="module" src="./models/scenes/scenebuilder_functional.js"></script>
+    <div class="viewer-details">
+        <h1 id="viewer-back-button"><a href="./works.html">&lt;&lt;BACK</a></h1>
+        <h1 class="viewer-title">A DWELLING FOR TWO SHADOWS</h1>
+        <p>The Dwelling for Two Shadows, designed by Michael Myunghyun Lee, is a small artist's studio designed to both fulfill the
+        basic requirements of an art studio, while also creating a space for the contemplation of material and shadow as light
+        travels through the structure.</p>
+        
+        <p>After we were approached to collaborate on presentation models for this project, we immediately sought ways to fully
+        capture the ambiance and aesthetic qualities that the designer intended in our showcase. For this first demo, we chose a
+        summer evening to demonstrate how we can use dramatic lighting in order to better convey the design's intention.</p>
+        
+        <p>We are very excited to continue working with MEANINGLESS in order to both push our technology further and to help
+        expedite their design and construction process.</p>
     </div>
-
-    <div id="navbar">
-        <div>
-            <a href="index.html">about</a>
-        </div>
-        <div>
-            <a href="works.html">demos</a>
-        </div>
-        <div>
-            <a href="team.html">team</a>
-        </div>
-        <div>
-            <a href="contact.html">contact</a>
-        </div>
-    </div>
-
-    <div class="content">
-        <div class="content-text">
-            <h1>CONTACT</h1>
-            <p>Please reach out to us at <a class="email-link" href="mailto:info@saunter.nyc">info@saunter.nyc</a>.</p>
-        </div>
+    <div id="showcase-temp" class="content-model small-model viewer-model" data-model-json-files="./models/shadowhouse/shadowhouse.json">
+        <script type="module" src="./models/scenes/scenebuilder_dwelling.js"></script>
     </div>
 
     <div class="footer">

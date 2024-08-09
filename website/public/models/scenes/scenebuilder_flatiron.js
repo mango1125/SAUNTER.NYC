@@ -63,7 +63,7 @@ function init() {
     // Camera setup
     camera = new THREE.PerspectiveCamera(75, sizeX / sizeY, 0.1, 100000);
     // camera.position.set(2500, 1000, 1700);
-    camera.position.set(-2200, -1200, -1800);
+    camera.position.set(-2200, 1200, -1800);
     camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the origin
 
     // Controls setup

@@ -21,6 +21,14 @@ p {
   font-size: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+a:hover {
+  text-decoration: underline;
+}
+
 canvas {
   display: block;
 }
@@ -32,18 +40,38 @@ canvas {
   margin-bottom: 2em;
 }
 
-.footer {
-  margin: 10px 0;
-}
-
 .email-link {
-  color: rgba(0, 0, 0, 0.87);
-  text-decoration: none;
   font-weight: 500;
   font-size: 20px;
 }
-.email-link:hover {
-  text-decoration: underline;
+
+.showcase-entries {
+  margin: 4em 0;
+}
+.showcase-entries ul {
+  margin-bottom: 2em;
+}
+.showcase-entries a {
+  display: flex;
+  align-items: center;
+}
+.showcase-entries a img {
+  max-width: 1.5em;
+  margin-left: 0.5em;
+}
+.showcase-entries h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0.5em 0;
+}
+.showcase-entries h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.footer {
+  margin: 10px 0;
 }
 
 #navbar {
@@ -77,4 +105,19 @@ canvas {
 }
 .not-found p {
   font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 0 20px;
+  }
+  #navbar {
+    flex-wrap: wrap;
+  }
+  #navbar div {
+    margin: 10px 0;
+  }
+  .splash-model {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */
