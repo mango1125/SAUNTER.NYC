@@ -78,7 +78,7 @@ function init() {
     controls.maxPolarAngle = Math.PI / 2; // Prevent looking underneath
 
     // Set zoom limits
-    controls.minDistance = 100; // Starting position is the furthest out you can zoom
+    controls.minDistance = 50; // Starting position is the furthest out you can zoom
     controls.maxDistance = 2100; // Prevent zooming out further
     controls.enableZoom = true;
 
